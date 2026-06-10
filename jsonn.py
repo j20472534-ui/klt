@@ -51,15 +51,12 @@
 # print(sum)
 # f.close()
 
-
 # import json
 # f=open("test.json")
 # n=json.load(f)
 # for k,v in n.items():
 #     for k1 in v:
 #         print(f"{k1['name']}: {k1['price']}")
-
-
 import json
 f=open("test.json")
 n=json.load(f)

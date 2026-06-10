@@ -1,33 +1,45 @@
-#  def last_unique_character(text: str):
-#     count=0
-#     for i in text[::-1]:
-#           if text.count(i)==1:
-#            return i
-#     return "_"
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton
 
-# text=input()
-# n=last_unique_character(text)
-# print(n)
+class MyWindow(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setStyleSheet("font-size:20px")
 
-# ------------------------------------------------------------------
+        self.red_btn = QPushButton("RED",self)
+        self.red_btn.move(50,50)
+        # self.red_btn.clicked.connect(self.Red)
+        self.red_btn.clicked.connect(lambda: self.Rang(self.red_btn))
 
-# def analyze_floats_in_text(text:str):
-#     text=text.replace(",", " ")
-#     word=text.split()
-#     floats=[]
-#     for i in word:
-#         try:
-#            num=float(i)
-#            if "." in i:
-#                floats.append(num)
-#         except ValueError:
-#            pass
-#     if not floats:
-#         return {"average": 0,"min": 0,"max": 0}
-#     average=round(sum(floats)/len(floats),2)
-#     maks=max(floats)
-#     minm=min(floats)
-#     return {"average": average,"max": maks,"min": minm}
-# text=input()
-# n=analyze_floats_in_text(text)
-# print(n)
+        self.yellow_btn = QPushButton("YELLOW",self)
+        self.yellow_btn.move(50, 150)
+        # self.yellow_btn.clicked.connect(self.Yellow)
+        self.red_btn.clicked.connect(lambda: self.Rang(self.yellow_btn))
+
+        self.green_btn = QPushButton("GREEN",self)
+        self.green_btn.move(50, 250)
+        # self.green_btn.clicked.connect(self.Green)
+        self.red_btn.clicked.connect(lambda: self.Rang(self.green_btn))
+
+
+    def Red(self):
+        self.setStyleSheet("background:red")
+    
+    def Yellow(self):
+        self.setStyleSheet("background:yellow")
+    
+    def Green(self):
+        self.setStyleSheet("background:green")
+
+    def Rang(self, obj):
+        if obj == self.red_btn:
+            print(obj.text())
+        elif obj == self.yellow_btn:
+            pass
+        else:
+            pass
+
+
+app = QApplication([])
+win = MyWindow()
+win.show()
+app.exec_()

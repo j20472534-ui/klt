@@ -31,3 +31,15 @@
 # text=input()
 # n=analyze_floats_in_text(text)
 # print(n)
+
+import pymysql
+
+class MySQL:
+    def __init__(self):
+        pymysql.connect(
+            user="root",
+            password="1234",
+            host="localhost"
+        )
+
+db = MySQL()
