@@ -1,163 +1,40 @@
-
-mysql> use work
-Database changed
-mysql> create table student(
-    -> id INT,
-    -> name TEXT,
-    -> age INT,
-    -> score INT);
-Query OK, 0 rows affected (0.26 sec)
-
-mysql> insert into student values(1,"doniyor",19,90),
-    -> (2,"ali",20,80),
-    -> (3,"sarvar",19,70),
-    -> (4,"sherzod",19,60),
-    -> (5,"vali",20,99);
-Query OK, 5 rows affected (0.10 sec)
-Records: 5  Duplicates: 0  Warnings: 0
-
-mysql> select * from students
-    -> ;
-ERROR 1146 (42S02): Table 'work.students' doesn't exist
-mysql> select * from student;
-+------+---------+------+-------+
-| id   | name    | age  | score |
-+------+---------+------+-------+
-|    1 | doniyor |   19 |    90 |
-|    2 | ali     |   20 |    80 |
-|    3 | sarvar  |   19 |    70 |
-|    4 | sherzod |   19 |    60 |
-|    5 | vali    |   20 |    99 |
-+------+---------+------+-------+
-5 rows in set (0.01 sec)
-
-mysql> select * from student where score >=90 and score <=101  order by name;
-+------+---------+------+-------+
-| id   | name    | age  | score |
-+------+---------+------+-------+
-|    1 | doniyor |   19 |    90 |
-|    5 | vali    |   20 |    99 |
-+------+---------+------+-------+
-2 rows in set (0.07 sec)
-
-mysql>  select * from student where score>=70 and score<=90 order by age desc;
-+------+---------+------+-------+
-| id   | name    | age  | score |
-+------+---------+------+-------+
-|    2 | ali     |   20 |    80 |
-|    1 | doniyor |   19 |    90 |
-|    3 | sarvar  |   19 |    70 |
-+------+---------+------+-------+
-3 rows in set (0.05 sec)
-
-mysql> select * from student where score>=60 and score <=70 order by score;
-+------+---------+------+-------+
-| id   | name    | age  | score |
-+------+---------+------+-------+
-|    4 | sherzod |   19 |    60 |
-|    3 | sarvar  |   19 |    70 |
-+------+---------+------+-------+
-2 rows in set (0.00 sec)
-
-mysql> create database MILLIY_TAOMLAR
-    -> ;
-Query OK, 1 row affected (0.06 sec)
-
-mysql> USE MILLIY_TAOMLAR;
-Database changed
-mysql> create table food(
-    -> id int,
-    -> food_name text,
-    -> food_ingredients text);
-Query OK, 0 rows affected (0.11 sec)
-
-mysql> insert into food values(1,"osh","guruch"),
-    -> (2,"manti","gosht"),
-    -> (3,"sushi","guruch"),
-    -> (4,"honim","kartoshka"),
-    -> (5,"gampan","guruch"),
-    -> (6,"chuchvara","sabzi"),
-    -> (7,"waguri","tovuq"),
-    -> (8,lagmon","baqlajon"),
-    "> :
-    "> ;
-    "> ;
-    ">
-    ">
-    ">
-    ">
-    "> (3,"sushi","guruch");
-    "> "'
-    '> '
-    -> ;
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '","baqlajon"),
-:
-;
-;
+CREATE TABLE sales (
+    id INT PRIMARY KEY,
+    product_name VARCHAR(50),
+    category VARCHAR(50),
+    price INT,
+    quantity INT,
+    sale_date DATE
+);
 
 
+INSERT INTO sales VALUES (1, 'Laptop', 'Electronics', 800, 2, '2025-01-01');
+INSERT INTO sales VALUES (2, 'Phone', 'Electronics', 600, 3, '2025-01-01');
+INSERT INTO sales VALUES (3, 'TV', 'Electronics', 900, 1, '2025-01-02');
+INSERT INTO sales VALUES (4, 'Headphones', 'Electronics', 150, 5, '2025-01-03');
+INSERT INTO sales VALUES (5, 'Table', 'Furniture', 300, 1, '2025-01-01');
+INSERT INTO sales VALUES (6, 'Chair', 'Furniture', 100, 4, '2025-01-02');
+INSERT INTO sales VALUES (7, 'Sofa', 'Furniture', 1200, 1, '2025-01-03');
+INSERT INTO sales VALUES (8, 'Bed', 'Furniture', 900, 1, '2025-01-04');
+INSERT INTO sales VALUES (9, 'T-shirt', 'Clothing', 40, 6, '2025-01-01');
+INSERT INTO sales VALUES (10, 'Jeans', 'Clothing', 70, 3, '2025-01-02');
+INSERT INTO sales VALUES (11, 'Jacket', 'Clothing', 120, 2, '2025-01-03');
+INSERT INTO sales VALUES (12, 'Shoes', 'Clothing', 90, 4, '2025-01-04');
+INSERT INTO sales VALUES (13, 'Apple', 'Food', 2, 20, '2025-01-01');
+INSERT INTO sales VALUES (14, 'Bread', 'Food', 3, 15, '2025-01-02');
+INSERT INTO sales VALUES (15, 'Milk', 'Food', 4, 10, '2025-01-03');
+INSERT INTO sales VALUES (16, 'Cheese', 'Food', 8, 5, '2025-01-04');
+INSERT INTO sales VALUES (17, 'Notebook', 'Stationery', 5, 10, '2025-01-01');
+INSERT INTO sales VALUES (18, 'Pen', 'Stationery', 2, 25, '2025-01-02');
+INSERT INTO sales VALUES (19, 'Marker', 'Stationery', 4, 12, '2025-01-03');
+INSERT INTO sales VALUES (20, 'Folder', 'Stationery', 6, 8, '2025-01-04');
 
-
-(3,"sushi","guruch");
-"'
-'' at line 8
-mysql> insert into food values(1,"osh","guruch"),
-    ->     -> (2,"manti","gosht"),
-    ->     -> (3,"sushi","guruch"),
-    ->     -> (4,"honim","kartoshka"),
-    ->     -> (5,"gampan","guruch"),
-    ->     -> (6,"chuchvara","sabzi"),
-    ->     -> (7,"waguri","tovuq"),
-    ->     -> (8,"lagmon","baqlajon"),
-    -> "
-    "> ;
-    "> at line 8
-    "> " '
-    '> '
-    -> ;
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> (2,"manti","gosht"),
-    -> (3,"sushi","guruch"),
-    -> (4,"honim","kartoshk' at line 2
-mysql> insert into food values(1,"osh","guruch"),
-    -> (2,"manti","gosht"),
-    ->      (3,"sushi","guruch"),
-    ->      (4,"honim","kartoshka"),
-    ->      (5,"gampan","guruch"),
-    ->      (6,"chuchvara","sabzi"),
-    ->      (7,"waguri","tovuq"),
-    ->      (8,"lagmon","baqlajon"),
-    -> (9,"shorva","karam")
-    -> (10,"shashlik","qiyma");
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(10,"shashlik","qiyma")' at line 10
-mysql> insert into food values(1,"osh","guruch"),
-    -> (2,"manti","gosht"),
-    -> (3,"sushi","guruch"),
-    -> (4,"honim","kartoshka"),
-    -> (5,"gampan","guruch"),
-    -> (6,"chuchvara","sabzi"),
-    -> (7,"waguri","tovuq"),
-    -> (8,"lagmon","baqlajon"),
-    -> (9,"shashlik","qiyma"),
-    -> (10,"shorva","guruch");
-Query OK, 10 rows affected (0.07 sec)
-Records: 10  Duplicates: 0  Warnings: 0
-
-mysql> select * from food where food_name LIKE "%a";
-+------+-----------+------------------+
-| id   | food_name | food_ingredients |
-+------+-----------+------------------+
-|    6 | chuchvara | sabzi            |
-|   10 | shorva    | guruch           |
-+------+-----------+------------------+
-2 rows in set (0.07 sec)
-
-mysql> select * from food where food_ingredients like "guruch";
-+------+-----------+------------------+
-| id   | food_name | food_ingredients |
-+------+-----------+------------------+
-|    1 | osh       | guruch           |
-|    3 | sushi     | guruch           |
-|    5 | gampan    | guruch           |
-|   10 | shorva    | guruch           |
-+------+-----------+------------------+
-4 rows in set (0.00 sec)
+select category, sum(quantity) from sales group by category;
+select category,sum(quantity*price) from sales  group by category;
+select category, avg(price) from sales group by category;
+select sale_date,sum(quantity*price) from sales group by sale_date;
+select category,sum(quantity*price) from sales where category='Electronics';
+select category from sales  group by category having avg(price)>100;
+select count(*) from sales where sale_date='2025-05-01';
+select category,sum(quantity) from sales group by category order by sum(quantity) desc limit 1;
+select category, sum(price*quantity) from sales where quantity>3 group by category;

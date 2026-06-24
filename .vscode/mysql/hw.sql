@@ -1,40 +1,40 @@
-use work
-
-CREATE TABLE computers (
-    id INT,
-    brand TEXT,
-    model TEXT,
-    cpu TEXT,
-    frequency REAL,
-    ram INT,
-    os TEXT,
-    price INT
+CREATE TABLE sales (
+    id INT PRIMARY KEY,
+    product_name VARCHAR(50),
+    category VARCHAR(50),
+    price INT,
+    quantity INT,
+    sale_date DATE
 );
 
-INSERT INTO computers (brand, model, cpu, frequency, ram, os, price) VALUES
-('Apple', 'MacBook Pro', 'Intel Core i7', 3.5, 16, 'macOS', 2500),
-('Apple', 'MacBook Air', 'Intel Core i5', 2.8, 8, 'macOS', 1200),
-('ASUS', 'ZenBook 14', 'Intel Core i5', 2.4, 8, 'Windows 10', 850),
-('ASUS', 'VivoBook 15', 'AMD Ryzen 5', 3.2, 16, 'Windows 10', 650),
-('Dell', 'XPS 13', 'Intel Core i7', 3.9, 16, 'Windows 10', 1800),
-('Dell', 'Inspiron 15', 'Intel Core i5', 2.5, 8, 'Windows 10', 700),
-('HP', 'Pavilion 15', 'AMD Ryzen 5', 2.1, 8, 'Windows 10', 550),
-('HP', 'EliteBook 840', 'Intel Core i7', 3.1, 16, 'Windows 10', 1400),
-('Lenovo', 'ThinkPad X1', 'Intel Core i7', 3.8, 16, 'Ubuntu 20.04', 1900),
-('Lenovo', 'IdeaPad 3', 'AMD Ryzen 5', 1.8, 4, 'Windows 10', 450),
-('Apple', 'MacBook Pro 16', 'Intel Core i9', 3.6, 16, 'macOS', 3000),
-('ASUS', 'ROG Zephyrus', 'AMD Ryzen 5', 3.0, 16, 'Windows 10', 1600),
-('Dell', 'Latitude 5420', 'Intel Core i5', 2.6, 8, 'Ubuntu 20.04', 950),
-('HP', 'Spectre x360', 'Intel Core i7', 3.3, 16, 'Windows 10', 1700),
-('Lenovo', 'Legion 5', 'AMD Ryzen 5', 3.1, 16, 'Windows 10', 1100),
-('Apple', 'MacBook Air M1', 'Intel Core i5', 2.0, 8, 'macOS', 999),
-('ASUS', 'ExpertBook B9', 'Intel Core i7', 2.9, 16, 'Windows 10', 1350),
-('Dell', 'G15 Gaming', 'Intel Core i7', 3.4, 16, 'Windows 10', 1250),
-('HP', 'Omen 15', 'Intel Core i7', 2.3, 8, 'Windows 10', 1150),
-('Lenovo', 'Yoga Slim 7', 'AMD Ryzen 5', 2.7, 8, 'Windows 10', 880);
 
-select * from computers order by price desc limit 1;
-select * from computers order by price  limit 1;
-select frequency from computers where price between 400 and 1000 and  cpu like '%intel%';
-select count(*) from computers where brand like '%apple%';
-select * from computers where os = 'Windows 10' and ram = 8 and brand = 'ASUS' order by price;
+INSERT INTO sales VALUES (1, 'Laptop', 'Electronics', 800, 2, '2025-01-01');
+INSERT INTO sales VALUES (2, 'Phone', 'Electronics', 600, 3, '2025-01-01');
+INSERT INTO sales VALUES (3, 'TV', 'Electronics', 900, 1, '2025-01-02');
+INSERT INTO sales VALUES (4, 'Headphones', 'Electronics', 150, 5, '2025-01-03');
+INSERT INTO sales VALUES (5, 'Table', 'Furniture', 300, 1, '2025-01-01');
+INSERT INTO sales VALUES (6, 'Chair', 'Furniture', 100, 4, '2025-01-02');
+INSERT INTO sales VALUES (7, 'Sofa', 'Furniture', 1200, 1, '2025-01-03');
+INSERT INTO sales VALUES (8, 'Bed', 'Furniture', 900, 1, '2025-01-04');
+INSERT INTO sales VALUES (9, 'T-shirt', 'Clothing', 40, 6, '2025-01-01');
+INSERT INTO sales VALUES (10, 'Jeans', 'Clothing', 70, 3, '2025-01-02');
+INSERT INTO sales VALUES (11, 'Jacket', 'Clothing', 120, 2, '2025-01-03');
+INSERT INTO sales VALUES (12, 'Shoes', 'Clothing', 90, 4, '2025-01-04');
+INSERT INTO sales VALUES (13, 'Apple', 'Food', 2, 20, '2025-01-01');
+INSERT INTO sales VALUES (14, 'Bread', 'Food', 3, 15, '2025-01-02');
+INSERT INTO sales VALUES (15, 'Milk', 'Food', 4, 10, '2025-01-03');
+INSERT INTO sales VALUES (16, 'Cheese', 'Food', 8, 5, '2025-01-04');
+INSERT INTO sales VALUES (17, 'Notebook', 'Stationery', 5, 10, '2025-01-01');
+INSERT INTO sales VALUES (18, 'Pen', 'Stationery', 2, 25, '2025-01-02');
+INSERT INTO sales VALUES (19, 'Marker', 'Stationery', 4, 12, '2025-01-03');
+INSERT INTO sales VALUES (20, 'Folder', 'Stationery', 6, 8, '2025-01-04');
+
+select category, sum(quantity) from sales group by category;
+select category,sum(quantity*price) from sales  group by category;
+select category, avg(price) from sales group by category;
+select sale_date,sum(quantity*price) from sales group by sale_date;
+select category,sum(quantity*price) from sales where category='Electronics';
+select category from sales  group by category having avg(price)>100;
+select count(*) from sales where sale_date='2025-05-01';
+select category,sum(quantity) from sales group by category order by sum(quantity) desc limit 1;
+select category, sum(price*quantity) from sales where quantity>3 group by category;
