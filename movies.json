@@ -1,0 +1,20 @@
+[
+    {
+        "title": "titanik",
+        "director": "james wilson",
+        "year": 1919,
+        "genre": "tragediya"
+    },
+    {
+        "title": "avatar",
+        "director": "james cameron",
+        "year": 2017,
+        "genre": "fantastika"
+    },
+    {
+        "title": "aladden",
+        "director": "rashid ali",
+        "year": 2014,
+        "genre": "komediya"
+    }
+]
