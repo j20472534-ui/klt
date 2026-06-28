@@ -1,129 +1,63 @@
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout, QHBoxLayout
+# def count_passing_students(grades: list[int], passingGrade: int) -> int:
+#     count = 0
 
-class Calculator(QWidget):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle("Calculator")
+#     for grade in grades:
+#         if grade >= passingGrade:
+#             count += 1
 
-        self.lbl = QLabel("")
+#     return count
+# grades = [45, 60, 75, 30, 90]
+# passingGrade = 60
 
-        self.btn_7 = QPushButton("7")
-        self.btn_8 = QPushButton("8")
-        self.btn_9 = QPushButton("9")
-        self.btn_div = QPushButton("/")
-        self.btn_4 = QPushButton("4")
-        self.btn_5 = QPushButton("5")
-        self.btn_6 = QPushButton("6")
-        self.btn_mul = QPushButton("*")
-        self.btn_1 = QPushButton("1") 
-        self.btn_2 = QPushButton("2")
-        self.btn_3 = QPushButton("3")
-        self.btn_min = QPushButton("-")
-        self.btn_c = QPushButton("C")
-        self.btn_0 = QPushButton("0")
-        self.btn_eq = QPushButton("=")
-        self.btn_plus = QPushButton("+")
+# print(count_passing_students(grades, passingGrade))
+# def ends_with_gram(words: list[str]) -> list[str]:
+#     result = []
 
-        self.btn_7.clicked.connect(self.press_7)
-        self.btn_8.clicked.connect(self.press_8)
-        self.btn_9.clicked.connect(self.press_9)
-        self.btn_div.clicked.connect(self.press_div)
-        self.btn_4.clicked.connect(self.press_4)
-        self.btn_5.clicked.connect(self.press_5)
-        self.btn_6.clicked.connect(self.press_6)
-        self.btn_mul.clicked.connect(self.press_mul)
-        self.btn_1.clicked.connect(self.press_1)
-        self.btn_2.clicked.connect(self.press_2)
-        self.btn_3.clicked.connect(self.press_3)
-        self.btn_min.clicked.connect(self.press_min)
-        self.btn_c.clicked.connect(self.press_c)
-        self.btn_0.clicked.connect(self.press_0)
-        self.btn_eq.clicked.connect(self.press_eq)
-        self.btn_plus.clicked.connect(self.press_plus)
+#     for word in words:
+#         if word.lower().endswith("gram"):
+#             result.append(word)
 
-        self.h_lay1 = QHBoxLayout()
-        self.h_lay2 = QHBoxLayout()
-        self.h_lay3 = QHBoxLayout()
-        self.h_lay4 = QHBoxLayout()
-        self.v_lay = QVBoxLayout()
+#     return result
 
-        self.h_lay1.addWidget(self.btn_7)
-        self.h_lay1.addWidget(self.btn_8)
-        self.h_lay1.addWidget(self.btn_9)
-        self.h_lay1.addWidget(self.btn_div)
+# words = ["telegram", "Instagram", "hello", "program", "diagram", "world"]
 
-        self.h_lay2.addWidget(self.btn_4)
-        self.h_lay2.addWidget(self.btn_5)
-        self.h_lay2.addWidget(self.btn_6)
-        self.h_lay2.addWidget(self.btn_mul)
+# print(ends_with_gram(words))
 
-        self.h_lay3.addWidget(self.btn_1)
-        self.h_lay3.addWidget(self.btn_2)
-        self.h_lay3.addWidget(self.btn_3)
-        self.h_lay3.addWidget(self.btn_min)
+# class Employee:
+#     def __init__(self, name: str, employee_id: str, hourly_rate: float = 15.0):
+#         self.name = name
+#         self.employee_id = employee_id
+#         self.__working_hours = []
+#         self.hourly_rate = hourly_rate
 
-        self.h_lay4.addWidget(self.btn_c)
-        self.h_lay4.addWidget(self.btn_0)
-        self.h_lay4.addWidget(self.btn_eq)
-        self.h_lay4.addWidget(self.btn_plus)
+#     def log_hours(self, hour: int) -> bool:
+#         if 0 <= hour <= 24:
+#             self.__working_hours.append(hour)
+#             return True
+#         return False
 
-        self.v_lay.addWidget(self.lbl)
-        self.v_lay.addLayout(self.h_lay1)
-        self.v_lay.addLayout(self.h_lay2)
-        self.v_lay.addLayout(self.h_lay3)
-        self.v_lay.addLayout(self.h_lay4)
+#     def total_hours(self) -> int:
+#         return sum(self.__working_hours)
 
-        self.setLayout(self.v_lay)
+#     def calculate_salary(self) -> float:
+#         return self.total_hours() * self.hourly_rate
 
-    def press_7(self):
-        self.lbl.setText(self.lbl.text() + "7")
+#     def reset_hours(self) -> None:
+#         self.__working_hours.clear()
 
-    def press_8(self):
-        self.lbl.setText(self.lbl.text() + "8")
 
-    def press_9(self):
-        self.lbl.setText(self.lbl.text() + "9")
+# employee = Employee("Javlon", "E101", 20.0)
 
-    def press_div(self):
-        self.lbl.setText(self.lbl.text() + "/")
+# print(employee.log_hours(8))
+# print(employee.log_hours(9))
+# print(employee.log_hours(10))
+# print(employee.log_hours(25))
 
-    def press_4(self):
-        self.lbl.setText(self.lbl.text() + "4")
+# print(employee.total_hours())
+# print(employee.calculate_salary())
 
-    def press_5(self):
-        self.lbl.setText(self.lbl.text() + "5")
+# employee.reset_hours()
 
-    def press_6(self):
-        self.lbl.setText(self.lbl.text() + "6")
+# print(employee.total_hours())
+# print(employee.calculate_salary())
 
-    def press_mul(self):
-        self.lbl.setText(self.lbl.text() + "*")
-
-    def press_1(self):
-        self.lbl.setText(self.lbl.text() + "1")
-
-    def press_2(self):
-        self.lbl.setText(self.lbl.text() + "2")
-
-    def press_3(self):
-        self.lbl.setText(self.lbl.text() + "3")
-
-    def press_min(self):
-        self.lbl.setText(self.lbl.text() + "-")
-
-    def press_c(self):
-        self.lbl.setText("")
-
-    def press_0(self):
-        self.lbl.setText(self.lbl.text() + "0")
-
-    def press_eq(self):
-        self.lbl.setText(str(eval(self.lbl.text())))
-
-    def press_plus(self):
-        self.lbl.setText(self.lbl.text() + "+")
-
-app = QApplication([])
-win = Calculator()
-win.show()
-app.exec_()
